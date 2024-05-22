@@ -3,6 +3,7 @@ import about from '../images/about-us.png';
 import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
 import '../About.css'; 
 
+
 const About = () => {
     return (
         <>

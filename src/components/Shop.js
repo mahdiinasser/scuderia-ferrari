@@ -1,6 +1,8 @@
 import React from 'react'
 import merch from "../images/merch.png"
 
+
+
 const Shop = () => {
     return (
 

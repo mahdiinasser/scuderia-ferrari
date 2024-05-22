@@ -4,6 +4,8 @@ import CS from "../images/sainz.png";
 import NUM16 from "../images/16.png";
 import NUM55 from "../images/55.png";
 
+
+
 const initialStats = [
   { criteria: 'WINS', value: 6 },
   { criteria: 'PODIUMS', value: 30 },
