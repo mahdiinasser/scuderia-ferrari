@@ -1,6 +1,7 @@
 import React from 'react';
 import about from '../images/about-us.png';
 import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
+import '../About.css'; 
 
 const About = () => {
     return (
@@ -17,41 +18,38 @@ const About = () => {
                         in every world championship since 1950.
                     </p>
 
-                    <MDBBtn className='m-1 border-0' size='lg' style={{ backgroundColor: '#131313' }} href='https://www.facebook.com/ScuderiaFerrari'>
-                        <MDBIcon fab icon='facebook-f' />
+                    <MDBBtn className='m-1 custom-btn' size='lg' href='https://www.facebook.com/ScuderiaFerrari'>
+                        <MDBIcon fab icon='facebook-f' className='mdb-icon' />
                     </MDBBtn>
 
-                    <MDBBtn className='m-1 border-0' size='lg' style={{ backgroundColor: '#131313' }} href='https://x.com/Scuderiaferrari'>
-                        <MDBIcon fab icon='x-twitter' />
+                    <MDBBtn className='m-1 custom-btn' size='lg' href='https://x.com/Scuderiaferrari'>
+                        <MDBIcon fab icon='x-twitter' className='mdb-icon' />
                     </MDBBtn>
 
-                    <MDBBtn className='m-1 border-0' size='lg' style={{ backgroundColor: '#131313' }} href='https://www.instagram.com/scuderiaferrari'>
-                        <MDBIcon fab icon='instagram' />
+                    <MDBBtn className='m-1 custom-btn' size='lg' href='https://www.instagram.com/scuderiaferrari'>
+                        <MDBIcon fab icon='instagram' className='mdb-icon' />
                     </MDBBtn>
 
-                    <MDBBtn className='m-1 border-0' size='lg' style={{ backgroundColor: '#131313' }} href='https://www.tiktok.com/@ferrari'>
-                        <MDBIcon fab icon='tiktok' />
+                    <MDBBtn className='m-1 custom-btn' size='lg' href='https://www.tiktok.com/@ferrari'>
+                        <MDBIcon fab icon='tiktok' className='mdb-icon' />
                     </MDBBtn>
 
-                    <MDBBtn className='m-1 border-0' size='lg' style={{ backgroundColor: '#131313' }} href='https://www.twitch.tv/ferrariesports'>
-                        <MDBIcon fab icon='twitch' />
+                    <MDBBtn className='m-1 custom-btn' size='lg' href='https://www.twitch.tv/ferrariesports'>
+                        <MDBIcon fab icon='twitch' className='mdb-icon' />
                     </MDBBtn>
 
-                    <MDBBtn className='m-1 border-0' size='lg' style={{ backgroundColor: '#131313' }} href='https://www.linkedin.com/showcase/scuderiaferrari/'>
-                        <MDBIcon fab icon='linkedin-in' />
+                    <MDBBtn className='m-1 custom-btn' size='lg' href='https://www.linkedin.com/showcase/scuderiaferrari/'>
+                        <MDBIcon fab icon='linkedin-in' className='mdb-icon' />
                     </MDBBtn>
 
-                    <MDBBtn className='m-1 border-0' size='lg' style={{ backgroundColor: '#131313' }} href='https://www.youtube.com/user/ferrariworld'>
-                        <MDBIcon fab icon='youtube' />
+                    <MDBBtn className='m-1 custom-btn' size='lg' href='https://www.youtube.com/user/ferrariworld'>
+                        <MDBIcon fab icon='youtube' className='mdb-icon' />
                     </MDBBtn>
-
 
                 </div>
             </div>
-
-
         </>
-    )
-}
+    );
+};
 
-export default About
+export default About;

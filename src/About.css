@@ -1,0 +1,24 @@
+.custom-btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: #131313;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: none;
+    outline: none;
+    transform: none;
+  }
+  
+  .custom-btn:active {
+    border: none;
+    outline: none;
+    transform: none;
+  }
+
+  .custom-btn:hover{
+    background-color: #131313ce;
+  }
+  

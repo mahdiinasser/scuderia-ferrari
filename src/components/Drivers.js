@@ -1,14 +1,42 @@
-import React from 'react'
-import CL from "../images/leclerc.png"
-import CS from "../images/sainz.png"
-import NUM16 from "../images/16.png"
-import NUM55 from "../images/55.png"
+import React, { useState } from 'react';
+import CL from "../images/leclerc.png";
+import CS from "../images/sainz.png";
+import NUM16 from "../images/16.png";
+import NUM55 from "../images/55.png";
 
+const initialStats = [
+  { criteria: 'WINS', value: 6 },
+  { criteria: 'PODIUMS', value: 30 },
+  { criteria: 'POLE POSITIONS', value: 27 },
+  { criteria: 'LAST WIN', value: '2022 Bahrain GP' }
+];
 
 const Drivers = () => {
+  const [driverStats, setDriverStats] = useState(initialStats);
+
+  const handleImageHover = () => {
+    const updatedStats = [...driverStats];
+    updatedStats[0].value = 0;
+    updatedStats[1].value = 0;
+    updatedStats[2].value = 0;
+    updatedStats[3].value = 0;
+    setDriverStats(updatedStats);
+  };
+
+  const handleImageLeave = () => {
+    const updatedStats = [...driverStats];
+    updatedStats[0].value = 5;
+    updatedStats[1].value = 4;
+    updatedStats[2].value = 3;
+    updatedStats[3].value = 2;
+    setDriverStats(updatedStats);
+  };
+  
+
+
   return (
     <div style={{ height: "100vh" }} id='drivers'>
-      <img src={CL} alt='leclerc' id='leclerc' />
+      <img src={CL} alt='leclerc' id='leclerc' onMouseEnter={handleImageHover} onMouseLeave={handleImageLeave} />
       <img src={CS} alt='sainz' id='sainz' />
 
       <div className='leclerc-info'>
@@ -16,30 +44,15 @@ const Drivers = () => {
         <h2>Charles Leclerc</h2>
       </div>
 
-      {/* <img src={BG} alt='bg' className='bg'></img> */}
       <div className='stats'>
-
-
         <table>
           <tbody>
-            <tr>
-              <td className='criteria'>WINS</td>
-              <td className='value'>6</td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr>
-              <td className='criteria'>PODIUMS</td>
-              <td className='value'>30</td>
-            </tr>
-            <tr>
-              <td className='criteria'>POLE POSITIONS</td>
-              <td className='value'>27</td>
-            </tr>
-            <tr>
-              <td className='criteria'>LAST WIN</td>
-              <td className='value'>2022 Bahrain GP</td>
-            </tr>
+            {driverStats.map((stat, index) => (
+              <tr key={index}>
+                <td className='criteria'>{stat.criteria}</td>
+                <td className='value'>{stat.value}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -49,7 +62,7 @@ const Drivers = () => {
         <h2>Carlos Sainz</h2>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Drivers
+export default Drivers;
