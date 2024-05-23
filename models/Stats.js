@@ -10,7 +10,23 @@ const StatsSchema = new mongoose.Schema({
     engine: {
         type: String,
         trim: true,
+    },
+
+    energy: {
+        type: String,
+        trim: true,
+    },
+
+    displacement: {
+        type: String,
+        trim: true,
+    },
+
+    power: {
+        type: String,
+        trim: true,
     }
+
 });
 
 module.exports = mongoose.model('Stats', StatsSchema);

@@ -9,13 +9,14 @@ import Drivers from "./components/Drivers";
 import Shop from "./components/Shop";
 import About from "./components/About";
 
+import { GlobalProvider } from "./context/GlobalState";
 
 document.body.style.backgroundColor = "#131313";
 
 function App() {
   return (
     
-    <>
+    <GlobalProvider>
       <Header /> 
       <NewsCarousel />
       <Car />
@@ -23,7 +24,7 @@ function App() {
       <Drivers/> 
       <About/>
 
-    </>
+    </GlobalProvider>
     
   );
 }
