@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import '../News.css';
 
-
-
-
 function News() {
   const initialNewsItems = [
     {
@@ -40,6 +37,19 @@ function News() {
     setNewsItems(newNewsItems);
   };
 
+  const handleImageChange = (e, index) => {
+    const newNewsItems = [...newsItems];
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        newNewsItems[index].image = reader.result;
+        setNewsItems(newNewsItems);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className="news-container">
       <h2>Latest News</h2>
@@ -57,6 +67,11 @@ function News() {
                 <textarea
                   value={item.caption}
                   onChange={(e) => handleChange(e, index, 'caption')}
+                />
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => handleImageChange(e, index)}
                 />
                 <button onClick={() => handleSave(index)}>Save</button>
               </>

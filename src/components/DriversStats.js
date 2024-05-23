@@ -9,7 +9,7 @@ function DriversStats() {
       podiums: 30,
       polePositions: 27,
       lastWin: '2022 Bahrain GP',
-      image: 'driver_image.jpg', 
+      image: 'driver_image.jpg',
     },
     {
       title: 'Driver Name2',
@@ -18,7 +18,7 @@ function DriversStats() {
       polePositions: 3,
       lastWin: '2021 Bahrain GP',
       image: 'driver_image1.jpg',
-    }
+    },
   ];
 
   const [driverStats, setDriverStats] = useState(initialDriverStats);
@@ -38,6 +38,19 @@ function DriversStats() {
     setDriverStats(newDriverStats);
   };
 
+  const handleImageChange = (e, index) => {
+    const newDriverStats = [...driverStats];
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        newDriverStats[index].image = reader.result;
+        setDriverStats(newDriverStats);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className="drivers-stats-container">
       <h2>Driver Stats</h2>
@@ -47,7 +60,7 @@ function DriversStats() {
           <div className="drivers-stats-content">
             {isEditing ? (
               <>
-                 <input
+                <input
                   type="text"
                   value={driver.title}
                   onChange={(e) => handleChange(e, index, 'title')}
@@ -71,6 +84,11 @@ function DriversStats() {
                   type="text"
                   value={driver.lastWin}
                   onChange={(e) => handleChange(e, index, 'lastWin')}
+                />
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => handleImageChange(e, index)}
                 />
                 <button onClick={handleSave}>Save</button>
               </>
