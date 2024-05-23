@@ -1,8 +1,8 @@
-.car-specs-container {
+.team-stats-container {
     padding: 20px;
   }
   
-  .car-spec-item {
+  .team-stats-item {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -10,20 +10,21 @@
     padding: 10px;
     border-radius: 5px;
   }
-  .car-spec-content {
+  
+  .team-stats-content {
     flex: 1;
   }
   
-  .car-spec-item h3 {
+  .team-stats-item h3 {
     margin: 0;
     font-size: 1.5em;
   }
   
-  .car-spec-item p {
+  .team-stats-item p {
     margin: 5px 0 0;
   }
   
-  .car-spec-item input {
+  .team-stats-item input {
     display: block;
     width: 100%;
     margin-bottom: 10px;
@@ -31,7 +32,7 @@
     font-size: 1em;
   }
   
-  .car-spec-item button {
+  .team-stats-item button {
     margin-top: 10px;
     padding: 8px 12px;
     font-size: 1em;

@@ -3,6 +3,8 @@ import Sidebar from './Sidebar';
 import News from './News';
 import CarSpecs from './CarSpecs'; 
 import DriversStats from './DriversStats'; 
+import TeamStats from './TeamStats'; 
+import AboutUs from './AboutUs'; 
 import '../Admin.css';
 
 function Admin() {
@@ -22,6 +24,10 @@ function Admin() {
         return <CarSpecs />;
       case 'driversstats':
         return <DriversStats />;
+      case 'teamstats':
+        return <TeamStats />;
+      case 'aboutus':
+        return <AboutUs />;
       default:
         return <p>Welcome to the admin page!</p>;
     }
