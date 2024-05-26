@@ -8,7 +8,7 @@ import Car from './components/Car';
 import Drivers from "./components/Drivers";
 import Shop from "./components/Shop";
 import About from "./components/About";
-import Admin from "./components/Admin";
+import Admin from "./admin/Admin";
 
 function BackgroundSetter() {
   const location = useLocation();
