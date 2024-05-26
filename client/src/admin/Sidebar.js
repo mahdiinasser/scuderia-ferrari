@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Sidebar.css'; 
+import '../admin-style/Sidebar.css'; 
 
 function Sidebar({ setCurrentSection }) {
   return (
@@ -8,7 +8,6 @@ function Sidebar({ setCurrentSection }) {
       <ul>
         <li><a href="#news" onClick={() => setCurrentSection('news')}>News</a></li>
         <li><a href="#carspecs" onClick={() => setCurrentSection('carspecs')}>Car Specs</a></li>
-        <li><a href="#teamstats" onClick={() => setCurrentSection('teamstats')}>Team Stats</a></li>
         <li><a href="#driversstats" onClick={() => setCurrentSection('driversstats')}>Drivers Stats</a></li>
         <li><a href="#aboutus" onClick={() => setCurrentSection('aboutus')}>About Us</a></li>
       </ul>

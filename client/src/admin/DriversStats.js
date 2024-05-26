@@ -38,7 +38,7 @@ const DriversStats = () => {
 
     const handleEdit = () => {
         setEditMode(true);
-    
+        // Initialize editedDrivers with current drivers data
         const initialEditedDrivers = {};
         drivers.forEach((item, index) => {
             initialEditedDrivers[index] = { ...item };
@@ -54,6 +54,7 @@ const DriversStats = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            // Update all drivers items
             await Promise.all(
                 Object.keys(editedDrivers).map(async (index) => {
                     const response = await axios.put(`/api/v1/drivers/${drivers[index]._id}`, editedDrivers[index]);
@@ -77,21 +78,23 @@ const DriversStats = () => {
     }
 
     return (
-        <div className='edit-driver'>
+        <div>
             {!editMode && (
                 <div>
-                    {drivers.map((item, index) => (
-                        <div key={index}>
-                            <h4>Driver {index + 1}</h4>
-                            <p>Name: {item.name}</p>
-                            <p>Wins: {item.wins}</p>
-                            <p>Podiums: {item.podiums}</p>
-                            <p>Poles: {item.poles}</p>
-                            <p>Last Win: {item.last_w}</p>
-                            <hr />
-                        </div>
-                    ))}
-                    <button onClick={handleEdit}>Edit</button>
+                    <div style={{ display: "flex" }}>
+                        {drivers.map((item, index) => (
+                            <div style={{ paddingRight: "100px" }} key={index}>
+                                <h3>Driver {index + 1}</h3>
+                                <p>Name: {item.name}</p>
+                                <p>Wins: {item.wins}</p>
+                                <p>Podiums: {item.podiums}</p>
+                                <p>Poles: {item.poles}</p>
+                                <p>Last Win: {item.last_w}</p>
+                                <hr />
+                            </div>
+                        ))}
+                    </div>
+                    <button style={{display: 'block', margin: 'auto' }} onClick={handleEdit}>Edit Drivers</button>
                 </div>
             )}
 
@@ -100,7 +103,7 @@ const DriversStats = () => {
                     <form onSubmit={handleSubmit}>
                         {drivers.map((item, index) => (
                             <div key={index} style={{ marginBottom: "20px" }}>
-                                <h4>Edit Driver {index + 1}</h4>
+                                <h3>Edit Driver {index + 1}</h3>
                                 <label htmlFor={`name${index}`}>Name:</label>
                                 <input
                                     type="text"

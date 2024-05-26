@@ -8,11 +8,11 @@ import NUM55 from "../images/55.png";
 
 
 function compare(str1, str2) {
- 
+  // Extract the last two digits from each string
   const lastTwoDigitsStr1 = parseInt(str1.split(' ').pop());
   const lastTwoDigitsStr2 = parseInt(str2.split(' ').pop());
 
-  
+  // Compare the last two digits
   if (lastTwoDigitsStr1 > lastTwoDigitsStr2) {
       return str1;
   } else {

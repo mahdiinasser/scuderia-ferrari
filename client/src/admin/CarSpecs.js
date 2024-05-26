@@ -12,7 +12,7 @@ const Test = () => {
     });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const id = '6650f593f6b860f49ded431a'; 
+    const id = '6650f593f6b860f49ded431a'; // Replace with the actual ID
 
     useEffect(() => {
         const fetchSpecs = async () => {
@@ -20,7 +20,7 @@ const Test = () => {
                 console.log(`Fetching specs from /api/v1/specs/`);
                 const response = await axios.get('/api/v1/specs/');
                 console.log('Response data:', response.data);
-                setSpecs(response.data.data); 
+                setSpecs(response.data.data); // Set initial state with fetched data
                 setLoading(false);
             } catch (err) {
                 console.error('Error fetching specs:', err);
@@ -43,7 +43,7 @@ const Test = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`/api/v1/specs/${id}`, specs);
+            await axios.put(`http://localhost:5000/api/v1/specs/${id}`, specs);
             alert('Specs updated successfully!');
             window.location.reload();
         } catch (err) {
@@ -114,7 +114,7 @@ const Test = () => {
                         onChange={handleChange}
                     />
                 </div>
-                <button style={{marginTop:"5px"}} type="submit">Update Specs</button>
+                <button type="submit">Update Specs</button>
             </form>
         </div>
     );

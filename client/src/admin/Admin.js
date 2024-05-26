@@ -3,9 +3,8 @@ import Sidebar from './Sidebar';
 import News from './News';
 import CarSpecs from './CarSpecs'; 
 import DriversStats from './DriversStats'; 
-import TeamStats from './TeamStats'; 
 import AboutUs from './AboutUs'; 
-import '../Admin.css';
+import '../admin-style/Admin.css';
 
 function Admin() {
   const [currentSection, setCurrentSection] = useState(() => {
@@ -24,8 +23,6 @@ function Admin() {
         return <CarSpecs />;
       case 'driversstats':
         return <DriversStats />;
-      case 'teamstats':
-        return <TeamStats />;
       case 'aboutus':
         return <AboutUs />;
       default:

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../admin-style/News.css'
+import '../admin-style/News.css';
 
 const News = () => {
     const [news, setNews] = useState([]);
@@ -99,7 +99,7 @@ const News = () => {
                     <h2>Edit News</h2>
                     <form onSubmit={handleSubmit}>
                         {news.map((item, index) => (
-                            <div key={index} style={{marginBottom: "20px"}}>
+                            <div key={index} style={{ marginBottom: "20px" }}>
                                 <h3>Edit News {index + 1}</h3>
                                 <label htmlFor={`title${index}`}>Title:</label>
                                 <input
@@ -112,7 +112,7 @@ const News = () => {
                                 <br />
                                 <label htmlFor={`caption${index}`}>Caption:</label>
                                 <input
-                                    style={{width:"1000px"}}
+                                    style={{ width: "1000px" }}
                                     type="text"
                                     id={`caption${index}`}
                                     name="caption"
@@ -123,7 +123,7 @@ const News = () => {
                             </div>
                         ))}
                         <button type="submit">Update News</button>
-                        <button style={{marginLeft:"5px"}} type="button" onClick={handleCancel}>Cancel</button>
+                        <button type="button" onClick={handleCancel} style={{ marginLeft: "5px" }}>Cancel</button>
                     </form>
                 </div>
             )}
