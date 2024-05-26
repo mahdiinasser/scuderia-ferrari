@@ -36,7 +36,7 @@ exports.addAbout = async (req, res, next) => {
 
 exports.deleteAbout = async (req, res, next) => {
     try {
-        const about = await about.findById(req.params.id);
+        const about = await About.findById(req.params.id);
 
         if (!about){
             return res.status(404).json({
