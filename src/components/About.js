@@ -5,6 +5,37 @@ import '../About.css';
 
 
 const About = () => {
+<<<<<<< Updated upstream:src/components/About.js
+=======
+    const [aboutText, setAboutText] = useState('');
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchAboutText = async () => {
+            try {
+                const response = await axios.get('/api/v1/about/');
+                setAboutText(response.data.data[0].text);
+                setLoading(false);
+            } catch (err) {
+                console.error('Error fetching about text:', err);
+                setError(`Error fetching about text: ${err.message}`);
+                setLoading(false);
+            }
+        };
+
+        fetchAboutText();
+    }, []);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>{error}</div>;
+    }
+
+>>>>>>> Stashed changes:client/src/components/About.js
     return (
         <>
             <div id='about'>
