@@ -7,7 +7,7 @@ const AboutUs = () => {
     const [editMode, setEditMode] = useState(false);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const id = '6651112d1249b1f41eb4caef'; // Replace with the actual ID
+    const id = '6651112d1249b1f41eb4caef'; 
 
     useEffect(() => {
         const fetchAbout = async () => {
@@ -15,7 +15,7 @@ const AboutUs = () => {
                 console.log(`Fetching about from /api/v1/about/`);
                 const response = await axios.get('/api/v1/about/');
                 console.log('Response data:', response.data);
-                setAbout(response.data.data[0].text); // Assuming only one about text exists
+                setAbout(response.data.data[0].text); 
                 setLoading(false);
             } catch (err) {
                 console.error('Error fetching about:', err);
@@ -36,10 +36,15 @@ const AboutUs = () => {
         setUpdatedAbout(e.target.value);
     };
 
+    const handleCancel = () => {
+        setEditMode(false);
+        setUpdatedAbout('');
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/v1/about/${id}`, { text: updatedAbout });
+            await axios.put(`/api/v1/about/${id}`, { text: updatedAbout });
             alert('About updated successfully!');
             window.location.reload();
         } catch (err) {
@@ -59,11 +64,12 @@ const AboutUs = () => {
     return (
         <div>
             {editMode ? (
-                <div>
+                <div style={{width:'70vw'}}>
                     <h2>Edit About</h2>
                     <form onSubmit={handleSubmit}>
-                        <textarea value={updatedAbout} onChange={handleChange} />
+                        <textarea style={{width: "100%", height:'250px'}} value={updatedAbout} onChange={handleChange} />
                         <button type="submit">Update</button>
+                        <button style={{marginLeft:"5px"}} type="button" onClick={handleCancel}>Cancel</button>
                     </form>
                 </div>
             ) : (

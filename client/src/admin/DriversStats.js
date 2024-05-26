@@ -46,6 +46,11 @@ const DriversStats = () => {
         setEditedDrivers(initialEditedDrivers);
     };
 
+    const handleCancel = () => {
+        setEditMode(false);
+        setEditedDrivers({});
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -76,25 +81,25 @@ const DriversStats = () => {
         <div>
             {!editMode && (
                 <div>
-                    <h2>Drivers</h2>
-                    {drivers.map((item, index) => (
-                        <div key={index}>
-                            <h3>Driver {index + 1}</h3>
-                            <p>Name: {item.name}</p>
-                            <p>Wins: {item.wins}</p>
-                            <p>Podiums: {item.podiums}</p>
-                            <p>Poles: {item.poles}</p>
-                            <p>Last Win: {item.last_w}</p>
-                            <hr />
-                        </div>
-                    ))}
-                    <button onClick={handleEdit}>Edit</button>
+                    <div style={{ display: "flex" }}>
+                        {drivers.map((item, index) => (
+                            <div style={{ paddingRight: "100px" }} key={index}>
+                                <h3>Driver {index + 1}</h3>
+                                <p>Name: {item.name}</p>
+                                <p>Wins: {item.wins}</p>
+                                <p>Podiums: {item.podiums}</p>
+                                <p>Poles: {item.poles}</p>
+                                <p>Last Win: {item.last_w}</p>
+                                <hr />
+                            </div>
+                        ))}
+                    </div>
+                    <button style={{display: 'block', margin: 'auto' }} onClick={handleEdit}>Edit Drivers</button>
                 </div>
             )}
 
             {editMode && (
                 <div>
-                    <h2>Edit Drivers</h2>
                     <form onSubmit={handleSubmit}>
                         {drivers.map((item, index) => (
                             <div key={index} style={{ marginBottom: "20px" }}>
@@ -147,6 +152,7 @@ const DriversStats = () => {
                             </div>
                         ))}
                         <button type="submit">Update Drivers</button>
+                        <button style={{marginLeft:"5px"}} type="button" onClick={handleCancel}>Cancel</button>
                     </form>
                 </div>
             )}
